@@ -1,6 +1,7 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
 <div class="container my-4">
+
   <!-- Back Button -->
   <div class="row">
     <div class="col-12 mb-3">
@@ -9,7 +10,7 @@
       </a>
     </div>
   </div>
-
+  {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
   <!-- Post Content -->
   <div class="row justify-content-center">
     <div class="col-md-10">
@@ -33,15 +34,38 @@
       <div class="card mb-4">
         <div class="card-body">
           <h2 class="mb-4">{{ comments.count }} Comments</h2>
-          {% for comment in comments %}
-          <div class="mb-3 pb-3" style="border-bottom: 1px solid #ddd;">
-            <p>
-              <strong>{{ comment.name }}</strong>
-              <span class="text-muted"> | {{ comment.created_on }}</span>
-            </p>
-            <p>{{ comment.body | linebreaks }}</p>
-          </div>
-          {% endfor %}
+          {% if comments.count > 0 %}
+          <ul class="list-unstyled">
+            {% for comment in comments %}
+            <li class="mb-4">
+              <div
+                class="d-flex align-items-center mb-2"
+                style="gap: 10px;"
+              >
+                <div
+                  class="avatar rounded-circle text-center text-white"
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background-color: #6c757d;
+                    line-height: 50px;
+                    font-size: 18px;
+                  "
+                >
+                  {{ comment.name|slice:":1"|upper }}
+                </div>
+                <div>
+                  <strong>{{ comment.name }}</strong>
+                  <span class="text-muted">| {{ comment.created_on }}</span>
+                </div>
+              </div>
+              <p>{{ comment.body | linebreaks }}</p>
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="text-muted">No comments yet. Be the first to share your thoughts!</p>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -50,7 +74,7 @@
   <!-- Comment Form -->
   <div class="row justify-content-center">
     <div class="col-md-10">
-      <div class="card mb-4">
+      <div class="card mb-4 comment-form-container">
         <div class="card-body">
           {% if new_comment %}
           <div class="alert alert-success" role="alert">
@@ -61,12 +85,16 @@
           <form method="post">
             {{ comment_form.as_p }}
             {% csrf_token %}
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg">
+              Submit Comment
+            </button>
           </form>
           {% endif %}
         </div>
       </div>
     </div>
   </div>
-</div>
+  
 {% endblock content %}
+
+

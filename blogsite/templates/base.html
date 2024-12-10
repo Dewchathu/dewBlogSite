@@ -8,31 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous" />
+            {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     </head>
 
     <body>
-        <style>
-            body {
-            font-family: "Roboto", sans-serif;
-            font-size: 17px;
-            background-color: #fdfdfd;
-        }
-        .shadow {
-            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-        }
-        .btn-danger {
-            color: #fff;
-            background-color: #f00000;
-            border-color: #dc281e;
-        }
-        .masthead {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            height: auto;
-            padding-bottom: 15px;
-            box-shadow: 0 16px 48px #E3E7EB;
-            padding-top: 10px;
-        }
-    </style>
 
         {% block content %}
         {% endblock content %}

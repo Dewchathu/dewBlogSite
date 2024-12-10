@@ -1,0 +1,200 @@
+/* General Body Styling */
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    background-color: #fdfdfd;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styling */
+.masthead {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    height: auto;
+    padding-bottom: 15px;
+    box-shadow: 0 16px 48px #E3E7EB;
+    padding-top: 10px;     
+}
+
+
+header.masthead .container {
+    position: relative;
+    z-index: 2;
+}
+
+header.masthead .site-heading {
+    margin-top: 50px;
+}
+
+header.masthead h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+header.masthead p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Blog Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card-text.text-muted {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+.sidebar-container {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    width: 300px; 
+    height: calc(100vh - 40px);
+    overflow-y: auto; 
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header.masthead h1 {
+        font-size: 2rem;
+    }
+
+    header.masthead p {
+        font-size: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+    }
+}
+
+
+.comment-form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avatar {
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .comment-form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .comment-form-container h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .comment-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .comment-form-container .form-control {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .comment-form-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+
+  .comment-form-container .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .comment-form-container .btn:hover {
+    background-color: #0056b3;
+  }
+
+  .alert-success {
+    font-size: 16px;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    border-radius: 5px;
+  }
