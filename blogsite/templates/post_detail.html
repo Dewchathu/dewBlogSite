@@ -1,46 +1,70 @@
-{% extends 'base.html' %}
- {% block content %}<div class="container">
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container my-4">
+  <!-- Back Button -->
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top"> 
-     <div class="card-body">
-        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1> 
-       <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-        <p class="card-text ">{{ post.content | safe }}</p> 
-     </div>    </div> 
-   {% block sidebar %}
- {% include 'sidebar.html' %} 
-{% endblock sidebar %} 
-   <div class="col-md-8 card mb-4  mt-3 ">
-      <div class="card-body">
-        <!-- comments --> 
-       <h2>{{ comments.count }} comments</h2>
-        {% for comment in comments %}
-        <div class="comments" style="padding: 10px;">
-          <p class="font-weight-bold"> 
-           {{ comment.name }}
-            <span class=" text-muted font-weight-normal">
-              {{ comment.created_on }}
-            </span>
+    <div class="col-12 mb-3">
+      <a href="javascript:history.back()" class="btn btn-secondary">
+        &larr; Back
+      </a>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h1 class="mb-3">{% block title %} {{ post.title }} {% endblock title %}</h1>
+          <p class="text-muted">
+            By <strong>{{ post.author }}</strong> | Published on {{ post.created_on }}
           </p>
-          {{ comment.body | linebreaks }}
+          <div class="mt-4">
+            <p class="card-text">{{ post.content | safe }}</p>
+          </div>
         </div>
-        {% endfor %}
-      </div> 
-   </div>
-    <div class="col-md-8 card mb-4  mt-3 ">
-      <div class="card-body">
-        {% if new_comment %}
-        <div class="alert alert-success" role="alert">
-          Your comment is awaiting moderation
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="mb-4">{{ comments.count }} Comments</h2>
+          {% for comment in comments %}
+          <div class="mb-3 pb-3" style="border-bottom: 1px solid #ddd;">
+            <p>
+              <strong>{{ comment.name }}</strong>
+              <span class="text-muted"> | {{ comment.created_on }}</span>
+            </p>
+            <p>{{ comment.body | linebreaks }}</p>
+          </div>
+          {% endfor %}
         </div>
-        {% else %}
-        <h3>Leave a comment</h3>
-        <form method="post" style="margin-top: 1.3em;">
-          {{ comment_form.as_p }}
-          {% csrf_token %}
-          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
-        </form>
-        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card mb-4">
+        <div class="card-body">
+          {% if new_comment %}
+          <div class="alert alert-success" role="alert">
+            Your comment is awaiting moderation.
+          </div>
+          {% else %}
+          <h3 class="mb-4">Leave a Comment</h3>
+          <form method="post">
+            {{ comment_form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          </form>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>

@@ -33,19 +33,19 @@
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-md-8 mt-3 left">
+        <div class="col-md-12 mt-3">
             {% for post in post_list %}
-            <div class="card mb-4">
+            <div class="card mb-4" style="border: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
                 <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|slice:":200" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    <h2 class="card-title text-gold">{{ post.title }}</h2>
+                    <p class="card-text text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                    <p class="card-text">{{ post.content|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
             </div>
             {% endfor %}
         </div>
-        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+        {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
     </div>
 </div>
 {%endblock%}
