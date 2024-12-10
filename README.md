@@ -1,4 +1,3 @@
-```markdown
 # Dew's Awesome Blogs  
 
 Dew's Awesome Blogs is a simple and user-friendly blog-reading platform built using Django. Users can browse and read blogs and view comments to engage with the content.  
@@ -17,13 +16,13 @@ Dew's Awesome Blogs is a simple and user-friendly blog-reading platform built us
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/dews-awesome-blogs.git
-   cd dews-awesome-blogs
-   ```  
+   git clone https://github.com/Dewchathu/dewBlogSite
+   cd dewBlogSite
+
 
 2. Create a virtual environment and activate it:  
    ```bash
-   python -m venv env  
+   python -m venv .venv  
    source env/bin/activate  # On Windows: env\Scripts\activate
    ```  
 
@@ -68,4 +67,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Happy Reading! 📚✨  
 ```
 
-Make sure to update the placeholder parts (like `https://github.com/yourusername/dews-awesome-blogs.git`) with actual links and information specific to your project!
